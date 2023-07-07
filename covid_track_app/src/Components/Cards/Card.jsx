@@ -3,6 +3,8 @@ import {Card,CardContent,Typography,Grid} from "@mui/material"
 import styles from './Cards.module.css'
 import CountUp from 'react-countup';
 
+import cx from 'classnames';
+
 
 function Cards({data:{cases,deaths,recovered}}) {
 // console.log(cases)
@@ -22,7 +24,7 @@ if(!recovered)
   return (
     <div className={styles.container}>
         <Grid container spacing={3} justify="center">
-          <Grid item component={Card}>
+          <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.cases)}>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>Cases</Typography>
               <Typography  variant='h5'>
@@ -38,7 +40,7 @@ if(!recovered)
               <Typography  variant='body2'>Number of Cases of COVID-19</Typography>
             </CardContent>
           </Grid>
-          <Grid item component={Card}>
+          <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>Deaths</Typography>
               <Typography  variant='h5'><CountUp
@@ -52,7 +54,7 @@ if(!recovered)
               <Typography  variant='body2'>Number of Death of COVID-19</Typography>
             </CardContent>
           </Grid>
-          <Grid item component={Card}>
+          <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
             <CardContent>
               <Typography color="textSecondary" gutterBottom>Recovery</Typography>
               <Typography  variant='h5'><CountUp
